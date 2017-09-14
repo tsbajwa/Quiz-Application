@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import QuizContainer from './containers/QuizContainer'
 
 import registerServiceWorker from './registerServiceWorker';
 
 const App = () => (
   <div>
-    App component
+    <QuizContainer />
   </div>
 )
 
