@@ -5,13 +5,14 @@ export const data = {
   isFetching: false,
   error: "",
   lastUpdated: "",
-  currentQuestion: 2,
-  lastUnansweredQuestion: 4,
-  currentQuiz: [
-    {
+  currentQuestionIndex: 0,
+  lastUnansweredQuestionIndex: 4,
+  quizOrder: ["key1", "key2", "key3"],
+  currentQuiz: {
+    12313: {
       questionText: "Question One peeps",
       answer: "Correct answer",
-      questionid: "asdasdad",
+      questionid: 12313,
       answerSelected: null,
       questionNumber: 1,
       answerOptions: {
@@ -20,10 +21,10 @@ export const data = {
         3: "Correct answer",
       },
     },
-    {
+    134123: {
       questionText: "Question two peeps",
       answer: "Correct answer",
-      questionid: "asdasasdd",
+      questionid: 134123,
       answerSelected: null,
       questionNumber: 2,
       answerOptions: {
@@ -32,7 +33,7 @@ export const data = {
         3: "Correct answer",
       },
     },
-  ],
+  },
   questions: {
     123123: {
       question: "This is the first q",

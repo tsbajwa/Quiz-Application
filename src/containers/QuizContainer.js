@@ -1,15 +1,16 @@
 import React from "react";
 import { Quiz, InfoBar, Button } from "../components";
 import { data } from "../helpers/data";
+import { connect } from "react-redux";
 
-export default class QuizContainer extends React.Component {
+class QuizContainer extends React.Component {
   handleClick = selectedAnswer => {
     this.checkAnswer(selectedAnswer);
     //Add answer to currentQuiz, currentQuestion
   };
 
   checkAnswer = selectedAnswer => {
-    const correctAnswer = data.currentQuiz.answer;
+    const correctAnswer = this.props.answer;
     //Got to change the styling for correct/incorrect answer
     if (selectedAnswer === correctAnswer) {
       console.log("You got the correct answer");
@@ -34,20 +35,19 @@ export default class QuizContainer extends React.Component {
   };
 
   render() {
-    const answerObject = data.currentQuiz.find(
-      question => question.questionNumber === data.currentQuestion
+    console.log(this.props);
+    const answerArray = Object.entries(this.props.answerOptions).map(
+      arr => arr[1]
     );
-    const { questionText, answerOptions, questionNumber } = answerObject;
-    const answerArray = Object.entries(answerOptions).map(arr => arr[1]);
     return (
       <div>
         <InfoBar
-          currentQuestion={questionNumber}
-          totalQuestions={data.currentQuiz.length}
+          currentQuestion={this.props.currentQuestionNumber}
+          totalQuestions={this.props.quizlength}
         />
         <Quiz
           answerArray={answerArray}
-          questionText={questionText}
+          questionText={this.props.questionText}
           onClick={this.handleClick}
         />
         <Button text="Previous" onClick={this.handlePreviousButtonClick} />
@@ -56,3 +56,26 @@ export default class QuizContainer extends React.Component {
     );
   }
 }
+
+function mapStateToProps(state, props) {
+  const quizlength = state.quizOrder.length;
+  const currentQuestionNumber = state.currentQuestionIndex + 1;
+  const questionKey = state.quizOrder[state.currentQuestionIndex];
+  const questionObject = state.currentQuiz[questionKey];
+  const {
+    questionText,
+    answer,
+    answerOptions,
+    answerSelected,
+  } = questionObject;
+
+  return {
+    questionText,
+    answerOptions,
+    answerSelected,
+    answer,
+    currentQuestionNumber,
+    quizlength,
+  };
+}
+export default connect(mapStateToProps)(QuizContainer);
