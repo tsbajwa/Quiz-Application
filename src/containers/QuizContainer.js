@@ -17,11 +17,17 @@ export default class QuizContainer extends React.Component {
       console.log("Sorry wrong answer");
     }
   };
+  handlePreviousButtonClick = () => {
+    this.prevQuestion();
+  };
 
-  handleButtonClick = () => {
+  handleNextButtonClick = () => {
     this.nextQuestion();
   };
 
+  prevQuestion = () => {
+    console.log("Pressed Previous Question button");
+  };
   nextQuestion = () => {
     //currentQuestion becomes the next question in currentQuiz
     console.log("Pressed Next Question button");
@@ -33,7 +39,6 @@ export default class QuizContainer extends React.Component {
     );
     const { questionText, answerOptions, questionNumber } = answerObject;
     const answerArray = Object.entries(answerOptions).map(arr => arr[1]);
-    console.log(answerArray);
     return (
       <div>
         <InfoBar
@@ -45,7 +50,8 @@ export default class QuizContainer extends React.Component {
           questionText={questionText}
           onClick={this.handleClick}
         />
-        <Button text="Next" onClick={this.handleButtonClick} />
+        <Button text="Previous" onClick={this.handlePreviousButtonClick} />
+        <Button text="Next" onClick={this.handleNextButtonClick} />
       </div>
     );
   }
