@@ -9,7 +9,7 @@ export default class QuizContainer extends React.Component {
   };
 
   checkAnswer = selectedAnswer => {
-    const correctAnswer = data.questions[data.currentQuestion.key].answer;
+    const correctAnswer = data.currentQuiz.answer;
     //Got to change the styling for correct/incorrect answer
     if (selectedAnswer === correctAnswer) {
       console.log("You got the correct answer");
