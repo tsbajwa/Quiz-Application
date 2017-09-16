@@ -10,6 +10,7 @@ import {
   currentQuiz,
   quizOrder,
   currentQuestionIndex,
+  lastAnsweredQuestionIndex,
 } from "./redux/modules";
 
 import registerServiceWorker from "./registerServiceWorker";
@@ -19,6 +20,7 @@ const reducers = combineReducers({
   currentQuiz,
   quizOrder,
   currentQuestionIndex,
+  lastAnsweredQuestionIndex,
 });
 
 const store = createStore(

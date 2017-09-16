@@ -6,7 +6,7 @@ export const data = {
   error: "",
   lastUpdated: "",
   currentQuestionIndex: 0,
-  lastUnansweredQuestionIndex: 4,
+  lastAnsweredQuestionIndex: 4,
   quizOrder: ["key1", "key2", "key3"],
   currentQuiz: {
     12313: {

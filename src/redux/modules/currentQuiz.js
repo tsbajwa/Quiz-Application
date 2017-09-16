@@ -15,7 +15,7 @@ const initialState = {
   },
   adsaljdnasjda: {
     questionText: "Question two peeps",
-    answer: "Correct answer",
+    answer: "Correct answer", // This may need to be an array of answers, or object becasue firebase doesnt deal with arrays? just make the keys answers?
     questionid: "asdasasdd",
     answerSelected: "",
     questionNumber: 2,

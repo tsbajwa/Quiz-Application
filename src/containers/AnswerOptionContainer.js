@@ -1,9 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import { AnswerOption } from "../components";
-import { addAnswer } from "../redux/actions";
+import { addAnswer, updateIndex } from "../redux/actions";
 
 class AnswerOptionContainer extends React.Component {
+  //componenthasmounted - check if answerSelected == answerText. If so run the appropiate function (change the styling)
   handleClick = () => {
     this.updateIfUnanswered();
   };
@@ -14,7 +15,13 @@ class AnswerOptionContainer extends React.Component {
         this.props.questionKey,
         this.props.questionObject
       );
+      this.props.updateIndex(this.props.currentIndex);
+      this.checkAnswer();
     }
+  };
+
+  checkAnswer = () => {
+    console.log("answer");
   };
 
   render() {
@@ -30,9 +37,11 @@ class AnswerOptionContainer extends React.Component {
 const mapStateToProps = state => {
   const questionKey = state.quizOrder[state.currentQuestionIndex];
   const questionObject = state.currentQuiz[questionKey];
+  const currentIndex = state.currentQuestionIndex;
   return {
     questionKey,
     questionObject,
+    currentIndex,
   };
 };
 
@@ -41,6 +50,7 @@ const mapDispatchToProps = dispatch => {
     updateAnswer: (answer, questionKey, questionObject) => {
       dispatch(addAnswer(answer, questionKey, questionObject));
     },
+    updateIndex: index => dispatch(updateIndex(index)),
   };
 };
 //onClick method --> update answer in state, check if answer correct, change style based on answer

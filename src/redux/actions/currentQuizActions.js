@@ -8,9 +8,3 @@ export function addAnswer(answer, questionKey, questionObject) {
     questionObject,
   };
 }
-
-// current Key
-//key.answer = answer
-
-//answer is a prop
-//questionKey is state
