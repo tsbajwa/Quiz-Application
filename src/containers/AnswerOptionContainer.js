@@ -5,13 +5,16 @@ import { addAnswer } from "../redux/actions";
 
 class AnswerOptionContainer extends React.Component {
   handleClick = () => {
-    this.props.updateAnswer(
-      this.props.answerText,
-      this.props.questionKey,
-      this.props.questionObject
-    );
-    console.log(this.props.questionObject);
-    console.log(this.props.questionKey);
+    this.updateIfUnanswered();
+  };
+  updateIfUnanswered = () => {
+    if (this.props.questionObject.answerSelected === "") {
+      this.props.updateAnswer(
+        this.props.answerText,
+        this.props.questionKey,
+        this.props.questionObject
+      );
+    }
   };
 
   render() {
