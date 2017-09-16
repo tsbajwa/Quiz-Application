@@ -1,14 +1,13 @@
 import React from "react";
-import { AnswerOption } from "../components";
+import { AnswerOptionContainer } from "../containers";
 
-export default function Quiz({questionText, answerArray, onClick}) {
+export default function Quiz({ questionText, answerArray }) {
   return (
     <div>
       <div>{questionText}</div>
       {answerArray.map(answerText => (
-        <AnswerOption onClick={onClick} answerText={answerText} />
+        <AnswerOptionContainer answerText={answerText} />
       ))}
     </div>
   );
-  
 }

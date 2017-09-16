@@ -1,4 +1,4 @@
-const initialState = [12313, 134123];
+const initialState = ["asdadsadasd", "adsaljdnasjda"];
 
 export default function quizOrder(state = initialState, action) {
   switch (action.type) {

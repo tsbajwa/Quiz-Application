@@ -1,9 +1,11 @@
+import { ADD_ANSWER } from "../types";
+
 const initialState = {
-  12313: {
+  asdadsadasd: {
     questionText: "Question One peeps",
     answer: "Correct answer",
     questionid: "asdasdad",
-    answerSelected: null,
+    answerSelected: "",
     questionNumber: 1,
     answerOptions: {
       1: "Option 1",
@@ -11,11 +13,11 @@ const initialState = {
       3: "Correct answer",
     },
   },
-  134123: {
+  adsaljdnasjda: {
     questionText: "Question two peeps",
     answer: "Correct answer",
     questionid: "asdasasdd",
-    answerSelected: null,
+    answerSelected: "",
     questionNumber: 2,
     answerOptions: {
       1: "Option 1",
@@ -27,6 +29,17 @@ const initialState = {
 
 export default function currentQuiz(state = initialState, action) {
   switch (action.type) {
+    case ADD_ANSWER: {
+      const { questionKey, questionObject, answer } = action;
+      const saveSelectedAnswer = {
+        ...questionObject,
+        answerSelected: answer,
+      };
+      return {
+        ...state,
+        [questionKey]: saveSelectedAnswer,
+      };
+    }
     default:
       return state;
   }
