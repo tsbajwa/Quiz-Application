@@ -1,6 +1,6 @@
 import React from "react";
-import { Quiz, InfoBar, Button } from "../components";
-import { data } from "../helpers/data";
+import { Quiz } from "../components";
+import { InfoBarContainer, QuizButtonContainer } from "../containers";
 import { connect } from "react-redux";
 
 class QuizContainer extends React.Component {
@@ -10,6 +10,7 @@ class QuizContainer extends React.Component {
   };
 
   checkAnswer = selectedAnswer => {
+    //Should check if already answered first i.e if this.props.answer ===''?
     const correctAnswer = this.props.answer;
     //Got to change the styling for correct/incorrect answer
     if (selectedAnswer === correctAnswer) {
@@ -18,48 +19,26 @@ class QuizContainer extends React.Component {
       console.log("Sorry wrong answer");
     }
   };
-  handlePreviousButtonClick = () => {
-    this.prevQuestion();
-  };
-
-  handleNextButtonClick = () => {
-    this.nextQuestion();
-  };
-
-  prevQuestion = () => {
-    console.log("Pressed Previous Question button");
-  };
-  nextQuestion = () => {
-    //currentQuestion becomes the next question in currentQuiz
-    console.log("Pressed Next Question button");
-  };
 
   render() {
-    console.log(this.props);
     const answerArray = Object.entries(this.props.answerOptions).map(
       arr => arr[1]
     );
     return (
       <div>
-        <InfoBar
-          currentQuestion={this.props.currentQuestionNumber}
-          totalQuestions={this.props.quizlength}
-        />
+        <InfoBarContainer />
         <Quiz
           answerArray={answerArray}
           questionText={this.props.questionText}
           onClick={this.handleClick}
         />
-        <Button text="Previous" onClick={this.handlePreviousButtonClick} />
-        <Button text="Next" onClick={this.handleNextButtonClick} />
+        <QuizButtonContainer />
       </div>
     );
   }
 }
 
-function mapStateToProps(state, props) {
-  const quizlength = state.quizOrder.length;
-  const currentQuestionNumber = state.currentQuestionIndex + 1;
+const mapStateToProps = state => {
   const questionKey = state.quizOrder[state.currentQuestionIndex];
   const questionObject = state.currentQuiz[questionKey];
   const {
@@ -74,8 +53,7 @@ function mapStateToProps(state, props) {
     answerOptions,
     answerSelected,
     answer,
-    currentQuestionNumber,
-    quizlength,
   };
-}
+};
+
 export default connect(mapStateToProps)(QuizContainer);
