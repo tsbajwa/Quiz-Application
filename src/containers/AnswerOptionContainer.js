@@ -4,7 +4,7 @@ import { AnswerOption } from "../components";
 import { addAnswer, updateIndex } from "../redux/actions";
 
 class AnswerOptionContainer extends React.Component {
-  //componenthasmounted - check if answerSelected == answerText. If so run the appropiate function (change the styling)
+  //componenthasmounted - need to do initial check -checkAnswer function
   handleClick = () => {
     this.updateIfUnanswered();
   };
@@ -22,6 +22,10 @@ class AnswerOptionContainer extends React.Component {
 
   checkAnswer = () => {
     console.log("answer");
+    //answer selected is current one. If so update red/green
+    //answer === current one --> mark green
+    //selected answer === answer (already marked green)
+    //selected answer === this answer =/ actual answer => make red
   };
 
   render() {
@@ -53,7 +57,6 @@ const mapDispatchToProps = dispatch => {
     updateIndex: index => dispatch(updateIndex(index)),
   };
 };
-//onClick method --> update answer in state, check if answer correct, change style based on answer
 
 export default connect(mapStateToProps, mapDispatchToProps)(
   AnswerOptionContainer
