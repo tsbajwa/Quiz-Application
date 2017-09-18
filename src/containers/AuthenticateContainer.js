@@ -3,13 +3,13 @@ import auth from "../helpers/auth";
 import { Authenticate } from "../components";
 
 export default class AuthenticateContainer extends React.Component {
-  handleAuth() {
+  handleAuth = () => {
     auth().then(user => {
       console.log("Authed User", user);
     });
-  }
+  };
 
   render() {
-    return <Authenticate isFetching={false} error="" onAuth={this.handleAuth} />;
+    return <Authenticate isFetching={true} error="" onAuth={this.handleAuth} />;
   }
 }

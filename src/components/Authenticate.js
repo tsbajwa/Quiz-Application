@@ -5,7 +5,7 @@ export default function Authenticate({ error, isFetching, onAuth }) {
   return (
     <div>
       <h1>Authenticate Container</h1>
-      <FacebookAuthButton />
+      <FacebookAuthButton isFetching={isFetching} onAuth={onAuth} />
       {error ? <p>{error}</p> : null}
     </div>
   );
