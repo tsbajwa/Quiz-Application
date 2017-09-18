@@ -3,8 +3,10 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "./index.css";
-import QuizContainer from "./containers/QuizContainer";
+import { QuizContainer, AuthenticateContainer } from "./containers";
+import registerServiceWorker from "./registerServiceWorker";
 import {
   questions,
   currentQuiz,
@@ -12,9 +14,6 @@ import {
   currentQuestionIndex,
   lastAnsweredQuestionIndex,
 } from "./redux/modules";
-
-import registerServiceWorker from "./registerServiceWorker";
-
 const reducers = combineReducers({
   questions,
   currentQuiz,
@@ -25,10 +24,7 @@ const reducers = combineReducers({
 
 const store = createStore(
   reducers,
-  compose(
-    applyMiddleware(thunk),
-    window.devToolsExtension ? window.devToolsExtension() : f => f
-  )
+  compose(applyMiddleware(thunk), window.devToolsExtension ? window.devToolsExtension() : f => f)
 );
 
 const App = () => (
@@ -37,9 +33,18 @@ const App = () => (
   </div>
 );
 
+const Routes = () => (
+  <Router>
+    <div>
+      <Route exact path="/" component={QuizContainer} />
+      <Route path="/auth" component={AuthenticateContainer} />
+    </div>
+  </Router>
+);
+
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Routes />
   </Provider>,
   document.getElementById("root")
 );

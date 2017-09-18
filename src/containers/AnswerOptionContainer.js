@@ -4,7 +4,6 @@ import { AnswerOption } from "../components";
 import { addAnswer, updateIndex } from "../redux/actions";
 
 class AnswerOptionContainer extends React.Component {
-  //componenthasmounted - need to do initial check -checkAnswer function
   handleClick = () => {
     this.updateIfUnanswered();
   };
@@ -16,16 +15,7 @@ class AnswerOptionContainer extends React.Component {
         this.props.questionObject
       );
       this.props.updateIndex(this.props.currentIndex);
-      this.checkAnswer();
     }
-  };
-
-  checkAnswer = () => {
-    console.log("answer");
-    //answer selected is current one. If so update red/green
-    //answer === current one --> mark green
-    //selected answer === answer (already marked green)
-    //selected answer === this answer =/ actual answer => make red
   };
 
   render() {
@@ -33,6 +23,8 @@ class AnswerOptionContainer extends React.Component {
       <AnswerOption
         onClick={this.handleClick}
         answerText={this.props.answerText}
+        answerSelected={this.props.answerSelected}
+        answer={this.props.answer}
       />
     );
   }
@@ -41,11 +33,14 @@ class AnswerOptionContainer extends React.Component {
 const mapStateToProps = state => {
   const questionKey = state.quizOrder[state.currentQuestionIndex];
   const questionObject = state.currentQuiz[questionKey];
+  const { answerSelected, answer } = questionObject;
   const currentIndex = state.currentQuestionIndex;
   return {
     questionKey,
     questionObject,
     currentIndex,
+    answerSelected,
+    answer,
   };
 };
 
@@ -58,6 +53,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(
-  AnswerOptionContainer
-);
+export default connect(mapStateToProps, mapDispatchToProps)(AnswerOptionContainer);
