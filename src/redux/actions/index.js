@@ -1,5 +1,4 @@
-import { prevQuestion, nextQuestion } from "./currentQuestionIndexActions";
-import { addAnswer } from "./currentQuizActions";
-import { updateIndex } from "./lastAnsweredQuestionIndexActions";
-
-export { prevQuestion, nextQuestion, addAnswer, updateIndex };
+export { prevQuestion, nextQuestion } from "./currentQuestionIndexActions";
+export { addAnswer } from "./currentQuizActions";
+export { updateIndex } from "./lastAnsweredQuestionIndexActions";
+export { fetchingUser, fetchedUser, logError } from "./userActions";
