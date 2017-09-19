@@ -10,6 +10,6 @@ export default class AuthenticateContainer extends React.Component {
   };
 
   render() {
-    return <Authenticate isFetching={true} error="" onAuth={this.handleAuth} />;
+    return <Authenticate isFetching={false} error="" onAuth={this.handleAuth} />;
   }
 }
