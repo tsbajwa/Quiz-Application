@@ -2,7 +2,7 @@ import React from "react";
 import auth from "../helpers/auth";
 import { Authenticate } from "../components";
 import { connect } from "react-redux";
-import { fetchingUser, fetchedUser, logError } from "../redux/actions";
+import { fetchingUser, fetchingUserSuccess, logError } from "../redux/actions";
 
 class AuthenticateContainer extends React.Component {
   handleAuth = () => {
@@ -20,10 +20,6 @@ class AuthenticateContainer extends React.Component {
   }
 }
 
-//dispatch fetchingUser
-//Run promise
-//After promise resolves .then -> fetchedUser
-//Workflow for error?
 const mapDispatchtoState = dispatch => {
   return {
     authenticate: () => {
@@ -31,7 +27,9 @@ const mapDispatchtoState = dispatch => {
       auth()
         .then(user => {
           console.log("Autheduser", user);
-          dispatch(fetchedUser(user));
+          const uid = user.uid;
+          const timestamp = Date.now();
+          dispatch(fetchingUserSuccess(user, uid, timestamp));
         })
         .catch(error => {
           dispatch(logError(error));
@@ -41,7 +39,7 @@ const mapDispatchtoState = dispatch => {
 };
 
 const mapStatetoProps = state => {
-  const { isFetching, error } = state.user;
+  const { isFetching, error } = state.users;
   return {
     isFetching,
     error,
