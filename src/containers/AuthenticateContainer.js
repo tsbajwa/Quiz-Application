@@ -27,9 +27,8 @@ const mapDispatchtoState = dispatch => {
       auth()
         .then(user => {
           console.log("Autheduser", user);
-          const uid = user.uid;
-          const timestamp = Date.now();
-          dispatch(fetchingUserSuccess(user, uid, timestamp));
+          const { uid, name } = user;
+          dispatch(fetchingUserSuccess(name, uid));
         })
         .catch(error => {
           dispatch(logError(error));
@@ -39,7 +38,7 @@ const mapDispatchtoState = dispatch => {
 };
 
 const mapStatetoProps = state => {
-  const { isFetching, error } = state.users;
+  const { isFetching, error } = state.user;
   return {
     isFetching,
     error,

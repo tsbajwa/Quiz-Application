@@ -13,7 +13,7 @@ import {
   quizOrder,
   currentQuestionIndex,
   lastAnsweredQuestionIndex,
-  users,
+  user,
 } from "./redux/reducers";
 const reducers = combineReducers({
   questions,
@@ -21,7 +21,7 @@ const reducers = combineReducers({
   quizOrder,
   currentQuestionIndex,
   lastAnsweredQuestionIndex,
-  users,
+  user,
 });
 
 const store = createStore(

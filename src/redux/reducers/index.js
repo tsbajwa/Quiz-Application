@@ -3,12 +3,5 @@ import questions from "./questions";
 import quizOrder from "./quizOrder";
 import currentQuestionIndex from "./currentQuestionIndex";
 import lastAnsweredQuestionIndex from "./lastAnsweredQuestionIndex";
-import users from "./users";
-export {
-  currentQuiz,
-  questions,
-  quizOrder,
-  currentQuestionIndex,
-  lastAnsweredQuestionIndex,
-  users,
-};
+import user from "./user";
+export { currentQuiz, questions, quizOrder, currentQuestionIndex, user, lastAnsweredQuestionIndex };

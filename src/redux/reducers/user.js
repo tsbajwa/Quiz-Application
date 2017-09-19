@@ -6,35 +6,15 @@ import {
   UNAUTH_USER,
 } from "../types";
 
-const initialUserState = {
-  lastUpdated: 0,
-  info: {
-    name: "",
-    uid: "",
-  },
-};
-
-function user(state = initialUserState, action) {
-  switch (action.type) {
-    case FETCHING_USER_SUCCESS:
-      return {
-        ...state,
-        lastUpdated: action.timestamp,
-        info: action.user,
-      };
-    default:
-      return state;
-  }
-}
-
 const initialState = {
   isFetching: false,
   error: "",
   isAuthed: false,
   authedId: "",
+  name: "",
 };
 
-export default function users(state = initialState, action) {
+export default function user(state = initialState, action) {
   switch (action.type) {
     case AUTH_USER:
       return {
@@ -50,7 +30,7 @@ export default function users(state = initialState, action) {
       };
     }
     case FETCHING_USER_SUCCESS:
-      return action.user === null
+      return action.uid === null
         ? {
             ...state,
             isFetching: false,
@@ -60,7 +40,8 @@ export default function users(state = initialState, action) {
             ...state,
             isFetching: false,
             error: "",
-            [action.uid]: user(state[action.uid], action),
+            authedid: action.uid,
+            name: action.name,
           };
     case FETCHING_USER:
       return {

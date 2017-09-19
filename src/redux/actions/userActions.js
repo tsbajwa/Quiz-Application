@@ -6,12 +6,11 @@ import {
   UNAUTH_USER,
 } from "../types";
 
-export function fetchingUserSuccess(user, uid, timestamp) {
+export function fetchingUserSuccess(name, uid) {
   return {
     type: FETCHING_USER_SUCCESS,
-    user,
+    name,
     uid,
-    timestamp,
   };
 }
 //user object with name and uid
