@@ -4,6 +4,7 @@ import QuizButtonContainer from "./QuizButtonContainer";
 import AnswerOptionContainer from "./AnswerOptionContainer";
 import AuthenticateContainer from "./AuthenticateContainer";
 import ProfileContainer from "./ProfileContainer";
+import NavBarContainer from "./NavBarContainer";
 
 export {
   QuizContainer,
@@ -12,4 +13,5 @@ export {
   AnswerOptionContainer,
   AuthenticateContainer,
   ProfileContainer,
+  NavBarContainer,
 };

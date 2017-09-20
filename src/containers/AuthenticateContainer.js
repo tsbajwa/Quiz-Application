@@ -1,12 +1,15 @@
 import React from "react";
-import auth from "../helpers/auth";
 import { Authenticate } from "../components";
 import { connect } from "react-redux";
-import { fetchingUser, fetchingUserSuccess, logError } from "../redux/actions";
+import { fetchAndHandleAuthedUser } from "../redux/actions";
 
 class AuthenticateContainer extends React.Component {
-  handleAuth = () => {
-    this.props.authenticate();
+  handleAuth = e => {
+    e.preventDefault();
+    this.props.fetchAndHandleAuthedUser().then(() => {
+      console.log("Function continuing");
+      //TODO: Route to another page after succesful login
+    });
   };
 
   render() {
@@ -22,20 +25,7 @@ class AuthenticateContainer extends React.Component {
 
 const mapDispatchtoState = dispatch => {
   return {
-    authenticate: () => {
-      dispatch(fetchingUser());
-      auth()
-        .then(user => {
-          console.log("Autheduser", user);
-          const { uid, displayName } = user.user;
-          console.log("UID", uid);
-          console.log("display NAme", displayName);
-          dispatch(fetchingUserSuccess(displayName, uid));
-        })
-        .catch(error => {
-          dispatch(logError(error));
-        });
-    },
+    fetchAndHandleAuthedUser: () => dispatch(fetchAndHandleAuthedUser()),
   };
 };
 

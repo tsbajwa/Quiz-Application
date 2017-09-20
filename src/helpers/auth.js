@@ -18,13 +18,19 @@ export default function auth() {
   return firebaseAuth().signInWithPopup(fbProvider);
 }
 
-//Need to make redux store for this
 export function checkIfAuthed(store) {
-  return store.getState().isAuthed;
+  return store.user.getState().isAuthed;
 }
 
 export function logout() {
-  return firebaseAuth().signout();
+  return firebaseAuth()
+    .signOut()
+    .then(() => {
+      console.log("Sign out successful");
+    })
+    .catch(error => {
+      console.log("signout Error", error);
+    });
 }
 
 export function saveUser(user) {

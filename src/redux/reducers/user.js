@@ -40,8 +40,9 @@ export default function user(state = initialState, action) {
             ...state,
             isFetching: false,
             error: "",
-            authedid: action.uid,
+            authedId: action.uid,
             name: action.name,
+            isAuthed: true,
           };
     case FETCHING_USER:
       return {
@@ -53,6 +54,7 @@ export default function user(state = initialState, action) {
         ...state,
         isFetching: false,
         error: action.error,
+        isAuthed: false,
       };
     default:
       return state;
