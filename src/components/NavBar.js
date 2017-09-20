@@ -8,14 +8,15 @@ export default function NavBar(props) {
       {props.isAuthed ? (
         <div>
           <button>Take Quiz</button>
-          <button>Profile</button>
+          <Link to="/profile">Profile</Link>
           <Link to="/logout">Logout</Link>
         </div>
       ) : (
         <div>
           <button>Take Quiz</button>
-          <button>Login</button>
+          <Link to="/Auth">Login</Link>
           <Link to="/logout">Logout</Link>
+          <Link to="/profile">Profile</Link>
         </div>
       )}
     </div>
