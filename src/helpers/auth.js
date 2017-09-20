@@ -1,26 +1,22 @@
 import { ref, firebaseAuth } from "../config/constant";
 
-export default function auth() {
-  return new Promise((resolve, reject) => {
-    setTimeout(
-      () =>
-        resolve({
-          name: "jit",
-          uid: "the-uid",
-        }),
-      2000
-    );
-  });
-}
-
 // export default function auth() {
-//   const fbProvider = new firebaseAuth.FacebookAuthProvider();
-//   return firebaseAuth()
-//     .signInWithPopup(fbProvider)
-//     .then(res => {
-//       console.log(res);
-//     });
+//   return new Promise((resolve, reject) => {
+//     setTimeout(
+//       () =>
+//         resolve({
+//           name: "jit",
+//           uid: "the-uid",
+//         }),
+//       2000
+//     );
+//   });
 // }
+
+export default function auth() {
+  const fbProvider = new firebaseAuth.FacebookAuthProvider();
+  return firebaseAuth().signInWithPopup(fbProvider);
+}
 
 //Need to make redux store for this
 export function checkIfAuthed(store) {

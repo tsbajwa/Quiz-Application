@@ -27,8 +27,10 @@ const mapDispatchtoState = dispatch => {
       auth()
         .then(user => {
           console.log("Autheduser", user);
-          const { uid, name } = user;
-          dispatch(fetchingUserSuccess(name, uid));
+          const { uid, displayName } = user.user;
+          console.log("UID", uid);
+          console.log("display NAme", displayName);
+          dispatch(fetchingUserSuccess(displayName, uid));
         })
         .catch(error => {
           dispatch(logError(error));

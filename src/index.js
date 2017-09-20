@@ -5,7 +5,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./index.css";
-import { QuizContainer, AuthenticateContainer } from "./containers";
+import { QuizContainer, AuthenticateContainer, ProfileContainer } from "./containers";
 import registerServiceWorker from "./registerServiceWorker";
 import {
   questions,
@@ -34,6 +34,7 @@ const Routes = () => (
     <div>
       <Route exact path="/" component={QuizContainer} />
       <Route path="/auth" component={AuthenticateContainer} />
+      <Route path="/profile" component={ProfileContainer} />
     </div>
   </Router>
 );
