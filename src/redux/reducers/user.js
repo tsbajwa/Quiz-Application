@@ -27,6 +27,7 @@ export default function user(state = initialState, action) {
         ...state,
         isAuthed: false,
         authedId: "",
+        name: "",
       };
     }
     case FETCHING_USER_SUCCESS:

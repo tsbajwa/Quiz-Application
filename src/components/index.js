@@ -6,6 +6,7 @@ import QuizButton from "./QuizButton";
 import Authenticate from "./Authenticate";
 import FacebookAuthButton from "./FacebookAuthButton";
 import NavBar from "./NavBar";
+import Logout from "./Logout";
 export {
   NavBar,
   Quiz,
@@ -15,4 +16,5 @@ export {
   QuizButton,
   Authenticate,
   FacebookAuthButton,
+  Logout,
 };

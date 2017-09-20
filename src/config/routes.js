@@ -5,6 +5,7 @@ import {
   AuthenticateContainer,
   ProfileContainer,
   NavBarContainer,
+  LogoutContainer,
 } from "../containers";
 
 export const Routes = () => (
@@ -14,6 +15,7 @@ export const Routes = () => (
       <Route exact path="/" component={QuizContainer} />
       <Route path="/auth" component={AuthenticateContainer} />
       <Route path="/profile" component={ProfileContainer} />
+      <Route path="/logout" component={LogoutContainer} />
     </div>
   </Router>
 );
