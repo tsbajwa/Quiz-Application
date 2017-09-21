@@ -19,6 +19,7 @@ class QuizButtonContainer extends React.Component {
         handleNextButtonClick={this.handleNextButtonClick}
         currentQuestionIndex={this.props.currentQuestionIndex}
         lastAnsweredQuestionIndex={this.props.lastAnsweredQuestionIndex}
+        quizLength={this.props.quizLength}
       />
     );
   }
@@ -26,10 +27,11 @@ class QuizButtonContainer extends React.Component {
 
 const mapStateToProps = state => {
   const { currentQuestionIndex, lastAnsweredQuestionIndex } = state;
-
+  const quizLength = state.quizOrder.length;
   return {
     currentQuestionIndex,
     lastAnsweredQuestionIndex,
+    quizLength,
   };
 };
 

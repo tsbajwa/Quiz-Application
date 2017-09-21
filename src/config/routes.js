@@ -6,6 +6,8 @@ import {
   ProfileContainer,
   NavBarContainer,
   LogoutContainer,
+  QuizPageContainer,
+  QuizResultContainer,
 } from "../containers";
 
 export const Routes = () => (
@@ -13,9 +15,11 @@ export const Routes = () => (
     <div>
       <NavBarContainer />
       <Route exact path="/" component={QuizContainer} />
+      <Route path="/quiz" component={QuizPageContainer} />
       <Route path="/auth" component={AuthenticateContainer} />
       <Route path="/profile" component={ProfileContainer} />
       <Route path="/logout" component={LogoutContainer} />
+      <Route path="/results" component={QuizResultContainer} />
     </div>
   </Router>
 );

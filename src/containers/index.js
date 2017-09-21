@@ -6,7 +6,8 @@ import AuthenticateContainer from "./AuthenticateContainer";
 import ProfileContainer from "./ProfileContainer";
 import NavBarContainer from "./NavBarContainer";
 import LogoutContainer from "./LogoutContainer";
-
+import QuizPageContainer from "./QuizPageContainer";
+import QuizResultContainer from "./QuizResultContainer";
 export {
   QuizContainer,
   InfoBarContainer,
@@ -16,4 +17,6 @@ export {
   ProfileContainer,
   NavBarContainer,
   LogoutContainer,
+  QuizPageContainer,
+  QuizResultContainer,
 };
