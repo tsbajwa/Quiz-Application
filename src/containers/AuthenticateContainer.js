@@ -6,9 +6,8 @@ import { fetchAndHandleAuthedUser } from "../redux/actions";
 class AuthenticateContainer extends React.Component {
   handleAuth = e => {
     e.preventDefault();
-    this.props.fetchAndHandleAuthedUser().then(() => {
-      console.log("Function continuing");
-      //TODO: Route to another page after succesful login
+    this.props.fetchAndHandleAuthedUser().then(user => {
+      console.log(user);
     });
   };
 

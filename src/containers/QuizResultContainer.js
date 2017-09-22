@@ -5,24 +5,24 @@ import { connect } from "react-redux";
 class QuizResultContainer extends React.Component {
   state = {
     correctQuestionCount: null,
-    totalQuestions: this.props.quizOrder.length,
     passed: null,
   };
 
   componentDidMount() {
-    this.calculateResult();
+    this.calculateAndSaveResult();
   }
-  calculateResult = () => {
+  calculateAndSaveResult = () => {
     const correctQuestionCount = this.findCorrectQuestionCount();
     const passed = this.passCheck(correctQuestionCount);
     this.setState({
       correctQuestionCount,
       passed,
     });
+    // Function to save this to firebase later
   };
 
   passCheck = correctQuestionCount => {
-    if (correctQuestionCount / this.state.totalQuestions < 0.6) {
+    if (correctQuestionCount / this.props.totalQuestions < 0.6) {
       return false;
     } else {
       return true;
@@ -41,10 +41,11 @@ class QuizResultContainer extends React.Component {
   };
 
   render() {
+    console.log(this.state);
     return (
       <QuizResult
         correctQuestionCount={this.state.correctQuestionCount}
-        totalQuestions={this.state.totalQuestions}
+        totalQuestions={this.props.totalQuestions}
         passed={this.state.passed}
       />
     );
@@ -54,6 +55,7 @@ class QuizResultContainer extends React.Component {
 const mapStateToProps = state => {
   return {
     currentQuiz: state.currentQuiz,
+    totalQuestions: state.quizOrder.length,
     quizOrder: state.quizOrder,
   };
 };

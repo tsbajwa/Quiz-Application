@@ -6,8 +6,8 @@ import {
   UNAUTH_USER,
 } from "../types";
 
-import auth, { logout } from "../../helpers/auth";
-function fetchingUserSuccess(name, uid) {
+import auth, { logout, saveUser } from "../../helpers/auth";
+export function fetchingUserSuccess(name, uid) {
   return {
     type: FETCHING_USER_SUCCESS,
     name,
@@ -40,14 +40,17 @@ function unAuthUser() {
   };
 }
 
-//returned auth so that promise is returned and can chain on
 export function fetchAndHandleAuthedUser() {
   return dispatch => {
     dispatch(fetchingUser());
     return auth()
+      .then(({ user }) => {
+        const userData = user.providerData[0];
+        const { displayName, uid } = userData;
+        return dispatch(fetchingUserSuccess(displayName, uid));
+      })
       .then(user => {
-        const { uid, displayName } = user.user;
-        dispatch(fetchingUserSuccess(displayName, uid));
+        saveUser(user);
       })
       .catch(error => {
         dispatch(logError(error));

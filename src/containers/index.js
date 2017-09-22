@@ -8,6 +8,9 @@ import NavBarContainer from "./NavBarContainer";
 import LogoutContainer from "./LogoutContainer";
 import QuizPageContainer from "./QuizPageContainer";
 import QuizResultContainer from "./QuizResultContainer";
+import FrontPageContainer from "./FrontPageContainer";
+import MainContainer from "./MainContainer";
+
 export {
   QuizContainer,
   InfoBarContainer,
@@ -19,4 +22,6 @@ export {
   LogoutContainer,
   QuizPageContainer,
   QuizResultContainer,
+  FrontPageContainer,
+  MainContainer,
 };

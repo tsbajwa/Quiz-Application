@@ -1,7 +1,7 @@
 import React from "react";
-
+import { Profile } from "../components";
 export default class ProfileContainer extends React.Component {
   render() {
-    return <div>Profile Container</div>;
+    return <Profile />;
   }
 }

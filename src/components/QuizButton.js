@@ -32,22 +32,3 @@ export default class QuizButton extends React.Component {
     return <div>{this.renderButtons()}</div>;
   }
 }
-
-// export default function QuizButton(props) {
-//   //TODO: Change 'Next' to 'Finish' when done and change onClick Method
-//   const showPrevBtn = props.currentQuestionIndex === 0 ? false : true;
-//   const showNextBtn = props.currentQuestionIndex > props.lastAnsweredQuestionIndex ? false : true;
-//   const quizFinished = props.lastAnsweredQuestionIndex + 1 === props.quizLength ? true: false;
-//   return (
-
-//     {quizFinished ? <p>See Results</p> :}
-
-//     // <div>
-//     //   {showPrevBtn ? <Button text="Previous" onClick={props.handlePreviousButtonClick} /> : null}
-
-//     //   {showNextBtn ? <Button text="Next" onClick={props.handleNextButtonClick} /> : null}
-//     // </div>
-//   );
-// }
-// //if last answeredq === quizlength
-// //Link to see results

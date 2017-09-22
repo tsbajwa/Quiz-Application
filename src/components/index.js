@@ -9,6 +9,8 @@ import NavBar from "./NavBar";
 import Logout from "./Logout";
 import QuizPage from "./QuizPage";
 import QuizResult from "./QuizResult";
+import FrontPage from "./FrontPage";
+import Profile from "./Profile";
 export {
   NavBar,
   Quiz,
@@ -21,4 +23,6 @@ export {
   Logout,
   QuizPage,
   QuizResult,
+  FrontPage,
+  Profile,
 };
