@@ -35,10 +35,9 @@ function logError(error) {
   };
 }
 
-function authUser(uid) {
+export function authUser() {
   return {
     type: AUTH_USER,
-    uid,
   };
 }
 function unAuthUser() {
@@ -60,6 +59,7 @@ export function fetchAndHandleAuthedUser() {
       .then(({ user }) => {
         saveUser(user);
       })
+      .then(user => dispatch(authUser))
       .catch(error => {
         dispatch(logError(error));
       });

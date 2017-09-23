@@ -4,10 +4,11 @@ import {
   FETCHING_USER_ERROR,
   AUTH_USER,
   UNAUTH_USER,
+  REMOVE_FETCHING_USER,
 } from "../types";
 
 const initialState = {
-  isFetching: false,
+  isFetching: true,
   error: "",
   isAuthed: false,
   authedId: "",
@@ -20,7 +21,6 @@ export default function user(state = initialState, action) {
       return {
         ...state,
         isAuthed: true,
-        authedId: action.uid,
       };
     case UNAUTH_USER: {
       return {
@@ -43,7 +43,6 @@ export default function user(state = initialState, action) {
             error: "",
             authedId: action.uid,
             name: action.name,
-            isAuthed: true,
           };
     case FETCHING_USER:
       return {
@@ -55,7 +54,16 @@ export default function user(state = initialState, action) {
         ...state,
         isFetching: false,
         error: action.error,
-        isAuthed: false,
+      };
+    case REMOVE_FETCHING_USER:
+      return {
+        ...state,
+        isFetching: false,
+      };
+    case AUTH_USER:
+      return {
+        ...state,
+        isAuthed: true,
       };
     default:
       return state;

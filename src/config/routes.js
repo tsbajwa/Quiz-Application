@@ -16,10 +16,7 @@ export const Routes = isAuthed => (
       <Route path="/" component={MainContainer} />
       <Route exact path="/" component={FrontPageContainer} />
       <Route path="/quiz" component={QuizPageContainer} />
-      <Route
-        path="/auth"
-        render={() => (isAuthed() ? <Redirect to="quiz" /> : <AuthenticateContainer />)}
-      />
+      <Route path="/auth" component={AuthenticateContainer} />
       <Route
         path="/profile"
         render={() => (isAuthed() ? <ProfileContainer /> : <Redirect to="/auth" />)}

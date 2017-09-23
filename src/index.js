@@ -15,10 +15,11 @@ const store = createStore(
 );
 
 function isAuthed() {
-  console.log(store.getState().user.isFetching);
   if (store.getState().user.isFetching === true) {
+    console.log("fetching is true");
     return;
   }
+  console.log("IsAuthed", store.getState().user);
   return checkIfAuthed(store);
 }
 

@@ -2,16 +2,17 @@ import React from "react";
 import { Authenticate } from "../components";
 import { connect } from "react-redux";
 import { fetchAndHandleAuthedUser } from "../redux/actions";
-
+import { Redirect } from "react-router-dom";
 class AuthenticateContainer extends React.Component {
   handleAuth = e => {
     e.preventDefault();
-    this.props.fetchAndHandleAuthedUser().then(user => {
-      console.log(user);
-    });
+    this.props.fetchAndHandleAuthedUser();
   };
 
   render() {
+    if (this.props.isAuthed) {
+      return <Redirect to="/quiz" />;
+    }
     return (
       <Authenticate
         isFetching={this.props.isFetching}
@@ -29,10 +30,11 @@ const mapDispatchtoState = dispatch => {
 };
 
 const mapStatetoProps = state => {
-  const { isFetching, error } = state.user;
+  const { isFetching, error, isAuthed } = state.user;
   return {
     isFetching,
     error,
+    isAuthed,
   };
 };
 export default connect(mapStatetoProps, mapDispatchtoState)(AuthenticateContainer);
