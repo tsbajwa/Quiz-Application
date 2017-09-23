@@ -4,17 +4,24 @@ import {
   FETCHING_USER_ERROR,
   AUTH_USER,
   UNAUTH_USER,
+  REMOVE_FETCHING_USER,
 } from "../types";
 
 import auth, { logout, saveUser } from "../../helpers/auth";
-export function fetchingUserSuccess(name, uid) {
+export function fetchingUserSuccess(name, uid, user) {
   return {
     type: FETCHING_USER_SUCCESS,
     name,
     uid,
+    user,
   };
 }
 
+export function removeFetchingUser() {
+  return {
+    type: REMOVE_FETCHING_USER,
+  };
+}
 function fetchingUser() {
   return {
     type: FETCHING_USER,
@@ -47,9 +54,10 @@ export function fetchAndHandleAuthedUser() {
       .then(({ user }) => {
         const userData = user.providerData[0];
         const { displayName, uid } = userData;
-        return dispatch(fetchingUserSuccess(displayName, uid));
+        const userInfo = { name: displayName, uid };
+        return dispatch(fetchingUserSuccess(displayName, uid, userInfo));
       })
-      .then(user => {
+      .then(({ user }) => {
         saveUser(user);
       })
       .catch(error => {

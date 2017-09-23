@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import {
   AuthenticateContainer,
   ProfileContainer,
@@ -10,14 +10,20 @@ import {
   FrontPageContainer,
 } from "../containers";
 
-export const Routes = () => (
+export const Routes = isAuthed => (
   <Router>
     <div>
       <Route path="/" component={MainContainer} />
       <Route exact path="/" component={FrontPageContainer} />
       <Route path="/quiz" component={QuizPageContainer} />
-      <Route path="/auth" component={AuthenticateContainer} />
-      <Route path="/profile" component={ProfileContainer} />
+      <Route
+        path="/auth"
+        render={() => (isAuthed() ? <Redirect to="quiz" /> : <AuthenticateContainer />)}
+      />
+      <Route
+        path="/profile"
+        render={() => (isAuthed() ? <ProfileContainer /> : <Redirect to="/auth" />)}
+      />
       <Route path="/logout" component={LogoutContainer} />
       <Route path="/results" component={QuizResultContainer} />
     </div>

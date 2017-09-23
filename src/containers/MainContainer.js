@@ -7,11 +7,13 @@ class MainContainer extends React.Component {
   componentDidMount() {
     firebaseAuth().onAuthStateChanged(user => {
       if (user) {
+        console.log(user);
         const userData = user.providerData[0];
         const { displayName, uid } = userData;
         this.props.fetchingUserSuccess(displayName, uid);
       } else {
-        //TODO:
+        //isFetching Starts as true
+        //run function to change isFetching to false
       }
     });
   }

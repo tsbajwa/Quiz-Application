@@ -1,27 +1,14 @@
 import { ref, firebaseAuth } from "../config/constant";
 
-// export default function auth() {
-//   return new Promise((resolve, reject) => {
-//     setTimeout(
-//       () =>
-//         resolve({
-//           name: "jit",
-//           uid: "the-uid",
-//         }),
-//       2000
-//     );
-//   });
-// }
-
 export default function auth() {
   const fbProvider = new firebaseAuth.FacebookAuthProvider();
   return firebaseAuth().signInWithPopup(fbProvider);
 }
 
 export function checkIfAuthed(store) {
-  return store.user.getState().isAuthed;
+  return store.getState().user.isAuthed === true;
 }
-
+//TODO: Remove console.log statements
 export function logout() {
   return firebaseAuth()
     .signOut()
