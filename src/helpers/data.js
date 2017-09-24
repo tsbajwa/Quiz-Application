@@ -14,7 +14,6 @@ export const data = {
       answer: "Correct answer",
       questionid: 12313,
       answerSelected: null,
-      questionNumber: 1,
       answerOptions: {
         1: "Option 1",
         2: "Option 2",
