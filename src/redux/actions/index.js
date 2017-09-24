@@ -1,6 +1,6 @@
 export { prevQuestion, nextQuestion } from "./currentQuestionIndexActions";
-export { addAnswer } from "./currentQuizActions";
-export { updateIndex } from "./lastAnsweredQuestionIndexActions";
+export { addAnswer, saveCurrentQuiz, resetCurrentQIndex } from "./currentQuizActions";
+export { updateIndex, resetLastAnsweredQIndex } from "./lastAnsweredQuestionIndexActions";
 export {
   fetchAndHandleAuthedUser,
   logOutAndUnAuth,
@@ -8,3 +8,4 @@ export {
   removeFetchingUser,
   authUser,
 } from "./userActions";
+export { saveQuizOrder } from "./quizOrderActions";

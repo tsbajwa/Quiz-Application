@@ -60,11 +60,6 @@ export default function user(state = initialState, action) {
         ...state,
         isFetching: false,
       };
-    case AUTH_USER:
-      return {
-        ...state,
-        isAuthed: true,
-      };
     default:
       return state;
   }

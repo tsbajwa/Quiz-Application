@@ -1,4 +1,4 @@
-import { ADD_ANSWER } from "../types";
+import { ADD_ANSWER, SAVE_CURRENT_QUIZ } from "../types";
 
 const initialState = {
   asdadsadasd: {
@@ -51,6 +51,9 @@ export default function currentQuiz(state = initialState, action) {
         ...state,
         [questionKey]: saveSelectedAnswer,
       };
+    }
+    case SAVE_CURRENT_QUIZ: {
+      return action.currentQuiz;
     }
     default:
       return state;

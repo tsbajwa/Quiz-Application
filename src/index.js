@@ -6,6 +6,8 @@ import thunk from "redux-thunk";
 import { Routes } from "./config/routes";
 import { reducers } from "./redux/reducers";
 import { checkIfAuthed } from "./helpers/auth";
+import { firebaseAuth } from "./config/constant";
+import { fetchingUserSuccess, removeFetchingUser, authUser } from "./redux/actions";
 import registerServiceWorker from "./registerServiceWorker";
 import "./index.css";
 
@@ -28,3 +30,15 @@ ReactDOM.render(
   document.getElementById("root")
 );
 registerServiceWorker();
+setTimeout(() => {
+  firebaseAuth().onAuthStateChanged(user => {
+    if (user) {
+      const userData = user.providerData[0];
+      const { displayName, uid } = userData;
+      store.dispatch(fetchingUserSuccess(displayName, uid));
+      store.dispatch(authUser());
+    } else {
+      store.dispatch(removeFetchingUser());
+    }
+  });
+});

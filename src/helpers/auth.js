@@ -6,10 +6,9 @@ export default function auth() {
 }
 
 export function checkIfAuthed(store) {
-  console.log(store.getState().user.isAuthed);
   return store.getState().user.isAuthed;
 }
-//TODO: Remove console.log statements
+//TODO: Remove console.log statements, unAuth on logOut
 export function logout() {
   return firebaseAuth()
     .signOut()

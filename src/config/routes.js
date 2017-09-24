@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import {
   AuthenticateContainer,
   ProfileContainer,
-  MainContainer,
+  NavBarContainer,
   LogoutContainer,
   QuizPageContainer,
   QuizResultContainer,
@@ -13,7 +13,7 @@ import {
 export const Routes = isAuthed => (
   <Router>
     <div>
-      <Route path="/" component={MainContainer} />
+      <Route path="/" component={NavBarContainer} />
       <Route exact path="/" component={FrontPageContainer} />
       <Route path="/quiz" component={QuizPageContainer} />
       <Route path="/auth" component={AuthenticateContainer} />
