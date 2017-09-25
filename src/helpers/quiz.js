@@ -7,28 +7,39 @@ import {
 
 export function generateAndSaveQuiz(questions, quizLength = 10) {
   return dispatch => {
-    const questionKeyArray = Object.keys(questions).filter(
-      key => key !== "isFetching" && key !== "error"
-    );
-    const shuffledQuestionKeys = shuffleArray(questionKeyArray);
-    const quizKeys = shuffledQuestionKeys.slice(0, quizLength);
-    dispatch(saveQuizOrder(quizKeys));
-    const currentQuiz = {};
-    quizKeys.map(key => {
-      currentQuiz[key] = { ...questions[key], answerSelected: "" };
-    });
-    dispatch(saveCurrentQuiz(currentQuiz));
+    const currentQuizKeys = generateQuiz(questions, quizLength);
+    dispatch(saveQuizOrder(currentQuizKeys));
+    dispatch(saveCurrentQuiz(getCurrentQuizQuestions(questions, currentQuizKeys)));
     dispatch(resetCurrentQIndex());
     dispatch(resetLastAnsweredQIndex());
   };
 }
 
-const shuffleArray = array => {
+function generateQuiz(questions, quizLength) {
+  const filteredAndShuffledQuestionKeys = getFilteredAndShuffledKeys(questions);
+  const currentQuizToSize = filteredAndShuffledQuestionKeys.slice(0, quizLength);
+  return currentQuizToSize;
+}
+
+function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
     let j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
   }
   return array;
-};
+}
 
-//rename file to helper functions
+function getCurrentQuizQuestions(questions, keyArray) {
+  const currentQuiz = {};
+  keyArray.map(key => {
+    currentQuiz[key] = { ...questions[key], answerSelected: "" };
+  });
+  return currentQuiz;
+}
+
+function getFilteredAndShuffledKeys(questions) {
+  const questionKeyArray = Object.keys(questions).filter(
+    key => key !== "isFetching" && key !== "error"
+  );
+  return shuffleArray(questionKeyArray);
+}
