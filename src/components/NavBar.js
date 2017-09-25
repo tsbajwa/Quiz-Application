@@ -14,8 +14,6 @@ export default function NavBar(props) {
         <div>
           <Link to="/quiz">Take Quiz</Link>
           <Link to="/Auth">Login</Link>
-          <Link to="/logout">Logout</Link>
-          <Link to="/profile">Profile</Link>
         </div>
       )}
     </div>
