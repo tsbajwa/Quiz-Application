@@ -7,9 +7,16 @@ import { Routes } from "./config/routes";
 import { reducers } from "./redux/reducers";
 import { checkIfAuthed } from "./helpers/auth";
 import { firebaseAuth } from "./config/constant";
-import { fetchingUserSuccess, removeFetchingUser, authUser } from "./redux/actions";
+import {
+  fetchingUserSuccess,
+  removeFetchingUser,
+  authUser,
+  fetchingQ,
+  fetchingQSuccess,
+} from "./redux/actions";
 import registerServiceWorker from "./registerServiceWorker";
 import "./index.css";
+import { fetchQuestions } from "./helpers/api";
 
 const store = createStore(
   reducers,
@@ -18,10 +25,8 @@ const store = createStore(
 
 function isAuthed() {
   if (store.getState().user.isFetching === true) {
-    console.log("fetching is true");
     return;
   }
-  console.log("IsAuthed", store.getState().user);
   return checkIfAuthed(store);
 }
 
@@ -40,5 +45,9 @@ setTimeout(() => {
     } else {
       store.dispatch(removeFetchingUser());
     }
+  });
+  store.dispatch(fetchingQ());
+  fetchQuestions().then(questions => {
+    store.dispatch(fetchingQSuccess(questions));
   });
 });

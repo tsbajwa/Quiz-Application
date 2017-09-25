@@ -28,3 +28,5 @@ const shuffleArray = array => {
   }
   return array;
 };
+
+//rename file to helper functions
