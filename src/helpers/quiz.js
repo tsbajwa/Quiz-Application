@@ -7,7 +7,9 @@ import {
 
 export function generateAndSaveQuiz(questions, quizLength = 10) {
   return dispatch => {
-    const questionKeyArray = Object.keys(questions);
+    const questionKeyArray = Object.keys(questions).filter(
+      key => key !== "isFetching" && key !== "error"
+    );
     const shuffledQuestionKeys = shuffleArray(questionKeyArray);
     const quizKeys = shuffledQuestionKeys.slice(0, quizLength);
     dispatch(saveQuizOrder(quizKeys));

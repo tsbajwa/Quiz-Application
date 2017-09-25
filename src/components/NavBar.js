@@ -1,11 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import QuizGeneratorContainer from "../containers/QuizGeneratorContainer";
 export default function NavBar(props) {
   return (
     <div>
       <h3>Logo</h3>
-      <QuizGeneratorContainer />
       {props.isAuthed ? (
         <div>
           <Link to="/quiz">Take Quiz</Link>
