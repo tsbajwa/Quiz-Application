@@ -5,16 +5,11 @@ import { connect } from "react-redux";
 
 class QuizContainer extends React.Component {
   render() {
-    const answerArray = Object.entries(this.props.answerOptions).map(
-      arr => arr[1]
-    );
+    const answerArray = Object.entries(this.props.answerOptions).map(arr => arr[1]);
     return (
       <div>
         <InfoBarContainer />
-        <Quiz
-          answerArray={answerArray}
-          questionText={this.props.questionText}
-        />
+        <Quiz answerArray={answerArray} questionText={this.props.question} />
         <QuizButtonContainer />
       </div>
     );
@@ -24,10 +19,10 @@ class QuizContainer extends React.Component {
 const mapStateToProps = state => {
   const questionKey = state.quizOrder[state.currentQuestionIndex];
   const questionObject = state.currentQuiz[questionKey];
-  const { questionText, answerOptions } = questionObject;
+  const { question, answerOptions } = questionObject;
 
   return {
-    questionText,
+    question,
     answerOptions,
   };
 };

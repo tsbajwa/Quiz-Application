@@ -3,12 +3,19 @@ import { QuizPage } from "../components";
 import { generateAndSaveQuiz } from "../helpers/quiz";
 import { connect } from "react-redux";
 class QuizPageContainer extends React.Component {
+  state = {
+    loading: true,
+  };
+
   componentDidMount() {
     this.props.generateAndSaveQuiz(this.props.questions);
+    this.setState({
+      loading: false,
+    });
   }
 
   render() {
-    return <QuizPage />;
+    return <div>{this.state.loading ? "Generating Quiz" : <QuizPage />}</div>;
   }
 }
 
