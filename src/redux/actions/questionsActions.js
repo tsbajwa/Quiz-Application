@@ -27,3 +27,16 @@ export function fetchAndSaveQuestions() {
     fetchQuestions();
   };
 }
+
+export function getQuestions() {
+  return dispatch => {
+    dispatch(fetchingQ());
+    return fetchQuestions()
+      .then(questions => {
+        return dispatch(fetchingQSuccess(questions));
+      })
+      .then(({ questions }) => {
+        return questions;
+      });
+  };
+}

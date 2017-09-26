@@ -9,4 +9,4 @@ export {
   authUser,
 } from "./userActions";
 export { saveQuizOrder } from "./quizOrderActions";
-export { fetchingQ, fetchingQSuccess } from "./questionsActions";
+export { fetchingQ, fetchingQSuccess, getQuestions } from "./questionsActions";

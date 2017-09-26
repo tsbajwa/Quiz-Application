@@ -2,16 +2,27 @@ import React from "react";
 import { QuizPage } from "../components";
 import { generateAndSaveQuiz } from "../helpers/quiz";
 import { connect } from "react-redux";
+import { getQuestions } from "../redux/actions";
 class QuizPageContainer extends React.Component {
   state = {
     loading: true,
   };
 
   componentDidMount() {
-    this.props.generateAndSaveQuiz(this.props.questions);
-    this.setState({
-      loading: false,
-    });
+    // Accounting for isFething and error property
+    if (Object.keys(this.props.questions).length < 3) {
+      this.props.getQuestions().then(questions => {
+        this.props.generateAndSaveQuiz(questions);
+        this.setState({
+          loading: false,
+        });
+      });
+    } else {
+      this.props.generateAndSaveQuiz(this.props.questions);
+      this.setState({
+        loading: false,
+      });
+    }
   }
 
   render() {
@@ -28,6 +39,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     generateAndSaveQuiz: questions => dispatch(generateAndSaveQuiz(questions)),
+    getQuestions: () => dispatch(getQuestions()),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(QuizPageContainer);

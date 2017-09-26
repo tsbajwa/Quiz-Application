@@ -8,7 +8,7 @@ import { reducers } from "./redux/reducers";
 import { checkIfAuthed } from "./helpers/auth";
 import registerServiceWorker from "./registerServiceWorker";
 import "./index.css";
-import { setUpListenersAndData } from "./helpers/initialization";
+import { setUpListeners } from "./helpers/listeners";
 
 const store = createStore(
   reducers,
@@ -27,4 +27,4 @@ ReactDOM.render(
   document.getElementById("root")
 );
 registerServiceWorker();
-setUpListenersAndData(store);
+setUpListeners(store);

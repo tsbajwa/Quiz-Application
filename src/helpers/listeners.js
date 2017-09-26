@@ -1,16 +1,8 @@
 import { firebaseAuth } from "../config/constant";
-import { fetchQuestions } from "./api";
-import {
-  fetchingUserSuccess,
-  removeFetchingUser,
-  authUser,
-  fetchingQ,
-  fetchingQSuccess,
-} from "../redux/actions";
+import { fetchingUserSuccess, removeFetchingUser, authUser } from "../redux/actions";
 
-export function setUpListenersAndData(store) {
+export function setUpListeners(store) {
   setUpAuthListener(store);
-  setUpInitialData(store);
 }
 
 function setUpAuthListener(store) {
@@ -23,12 +15,5 @@ function setUpAuthListener(store) {
     } else {
       store.dispatch(removeFetchingUser());
     }
-  });
-}
-
-function setUpInitialData(store) {
-  store.dispatch(fetchingQ());
-  fetchQuestions().then(questions => {
-    store.dispatch(fetchingQSuccess(questions));
   });
 }
