@@ -1,52 +1,55 @@
 import React from "react";
 import { QuizResult } from "../components";
 import { connect } from "react-redux";
-
+import { passCheck } from "../helpers/quiz";
+import { fetchUpdateAndSaveAnswerCount } from "../helpers/api";
 class QuizResultContainer extends React.Component {
   state = {
     correctQuestionCount: null,
-    passed: null,
+    passedQuiz: null,
   };
 
   componentDidMount() {
     this.calculateAndSaveResult();
   }
   calculateAndSaveResult = () => {
-    const correctQuestionCount = this.findCorrectQuestionCount();
-    const passed = this.passCheck(correctQuestionCount);
+    const answersChecked = this.recordAndCountResult();
+    const correctQuestionCount = answersChecked[0];
+    const passedQuiz = passCheck(correctQuestionCount, this.props.totalQuestions);
     this.setState({
       correctQuestionCount,
-      passed,
+      passedQuiz,
     });
-    // Function to save this to firebase later
-  };
-
-  passCheck = correctQuestionCount => {
-    if (correctQuestionCount / this.props.totalQuestions < 0.6) {
-      return false;
-    } else {
-      return true;
+    if (this.props.uid !== "") {
+      const recordOfQuestionsAnsweredCorrectly = answersChecked[1];
+      this.saveResult(this.props.uid, recordOfQuestionsAnsweredCorrectly);
     }
   };
 
-  findCorrectQuestionCount = () => {
-    let correctQuestionCount = 0;
+  saveResult = (uid, currentResult) => {
+    fetchUpdateAndSaveAnswerCount(uid, currentResult);
+  };
+  recordAndCountResult = () => {
+    let correctAnswerCount = 0;
+    const recordOfQuestionsAnsweredCorrectly = {};
     const { quizOrder, currentQuiz } = this.props;
     quizOrder.map(key => {
       if (currentQuiz[key].answerSelected === currentQuiz[key].answer) {
-        correctQuestionCount++;
+        correctAnswerCount++;
+        recordOfQuestionsAnsweredCorrectly[key] = true;
+      } else {
+        recordOfQuestionsAnsweredCorrectly[key] = false;
       }
     });
-    return correctQuestionCount;
+    return [correctAnswerCount, recordOfQuestionsAnsweredCorrectly];
   };
 
   render() {
-    console.log(this.state);
     return (
       <QuizResult
         correctQuestionCount={this.state.correctQuestionCount}
         totalQuestions={this.props.totalQuestions}
-        passed={this.state.passed}
+        passed={this.state.passedQuiz}
       />
     );
   }
@@ -57,6 +60,7 @@ const mapStateToProps = state => {
     currentQuiz: state.currentQuiz,
     totalQuestions: state.quizOrder.length,
     quizOrder: state.quizOrder,
+    uid: state.user.authedId,
   };
 };
 

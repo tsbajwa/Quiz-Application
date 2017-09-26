@@ -5,7 +5,7 @@ import {
   resetLastAnsweredQIndex,
 } from "../redux/actions";
 
-export function generateAndSaveQuiz(questions, quizLength = 10) {
+export function generateAndSaveQuiz(questions, quizLength = 1) {
   return dispatch => {
     const currentQuizKeys = generateQuiz(questions, quizLength);
     dispatch(saveQuizOrder(currentQuizKeys));
@@ -42,4 +42,12 @@ function getFilteredAndShuffledKeys(questions) {
     key => key !== "isFetching" && key !== "error"
   );
   return shuffleArray(questionKeyArray);
+}
+
+export function passCheck(correctNumber, totalNumber, passRate = 0.6) {
+  if (correctNumber / totalNumber < passRate) {
+    return false;
+  } else {
+    return true;
+  }
 }
