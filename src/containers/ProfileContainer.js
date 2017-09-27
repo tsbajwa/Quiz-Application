@@ -13,6 +13,9 @@ class ProfileContainer extends React.Component {
       this.props.getQuestions();
     }
     fetchAnswerCount(this.props.uid).then(value => {
+      if (value === null) {
+        return;
+      }
       const orderedWrongAnswerCount = arrangeObjectKeysbyValue(value);
       this.setState({
         orderedWrongAnswerCount,
