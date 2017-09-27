@@ -16,7 +16,6 @@ export function fetchUpdateAndSaveAnswerCount(uid, currentResult) {
 }
 
 export function fetchAnswerCount(uid) {
-  console.log("UID inside fetch", uid);
   return ref
     .child(`users/${uid}/answerCount`)
     .once("value")

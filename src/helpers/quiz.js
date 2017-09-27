@@ -51,3 +51,7 @@ export function passCheck(correctNumber, totalNumber, passRate = 0.6) {
     return true;
   }
 }
+
+export function arrangeObjectKeysbyValue(object) {
+  return Object.entries(object).sort((a, b) => a[1] - b[1]);
+}

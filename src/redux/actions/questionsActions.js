@@ -21,13 +21,6 @@ export function fetchingQSuccess(questions) {
   };
 }
 
-export function fetchAndSaveQuestions() {
-  return dispatch => {
-    dispatch(fetchingQ());
-    fetchQuestions();
-  };
-}
-
 export function getQuestions() {
   return dispatch => {
     dispatch(fetchingQ());
