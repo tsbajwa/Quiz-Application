@@ -7,7 +7,7 @@ import { Routes } from "./config/routes";
 import { reducers } from "./redux/reducers";
 import { checkIfAuthed } from "./helpers/auth";
 import registerServiceWorker from "./registerServiceWorker";
-import "./index.css";
+import "./App.css";
 import { setUpListeners } from "./helpers/listeners";
 
 const store = createStore(
