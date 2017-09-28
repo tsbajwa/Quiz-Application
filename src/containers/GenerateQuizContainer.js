@@ -1,9 +1,9 @@
 import React from "react";
-import { QuizPage } from "../components";
+import { QuizContainer } from "../containers";
 import { generateAndSaveQuiz } from "../helpers/quiz";
 import { connect } from "react-redux";
 import { getQuestions } from "../redux/actions";
-class QuizPageContainer extends React.Component {
+class GenerateQuizContainer extends React.Component {
   state = {
     loading: true,
   };
@@ -26,7 +26,7 @@ class QuizPageContainer extends React.Component {
   }
 
   render() {
-    return <div>{this.state.loading ? "Generating Quiz" : <QuizPage />}</div>;
+    return <div>{this.state.loading ? "Generating Quiz" : <QuizContainer />}</div>;
   }
 }
 
@@ -42,4 +42,4 @@ const mapDispatchToProps = dispatch => {
     getQuestions: () => dispatch(getQuestions()),
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(QuizPageContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(GenerateQuizContainer);
