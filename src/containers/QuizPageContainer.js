@@ -9,7 +9,7 @@ class QuizPageContainer extends React.Component {
   };
 
   componentDidMount() {
-    // Accounting for isFething and error property
+    // Accounting for isFetching and error property on questions object
     if (Object.keys(this.props.questions).length < 3) {
       this.props.getQuestions().then(questions => {
         this.props.generateAndSaveQuiz(questions);
