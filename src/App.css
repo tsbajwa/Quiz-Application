@@ -390,3 +390,6 @@ h2,
 h3,
 h4 {
   font-family: "Source Sans Pro", sans-serif; }
+
+nav {
+  box-sizing: border-box; }

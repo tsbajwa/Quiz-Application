@@ -11,6 +11,10 @@ body {
 }
 
 // Helpers
-@import "./style/helpers/breakpoints.scss";
-@import "./style/helpers/color.scss";
-@import "./style/helpers/typography.scss";
+@import "./style/helpers/_breakpoints.scss";
+@import "./style/helpers/_color.scss";
+@import "./style/helpers/_typography.scss";
+
+//components
+
+@import "./style/components/_navbar.scss";
