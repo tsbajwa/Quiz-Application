@@ -391,5 +391,16 @@ h3,
 h4 {
   font-family: "Source Sans Pro", sans-serif; }
 
-nav {
-  box-sizing: border-box; }
+.nav {
+  box-sizing: border-box;
+  padding: 30px;
+  background: #3058bd; }
+  .nav__ul {
+    float: right; }
+  .nav__li {
+    text-decoration: none;
+    color: white; }
+    .nav__li:not(:first-child) {
+      margin-left: 25px; }
+    .nav__li:hover {
+      color: orange; }

@@ -1,43 +1,39 @@
 import React from "react";
-import { Link } from "react-router-dom";
-export default function NavBar(props) {
+import { NavLink, Link } from "react-router-dom";
+export default function NavBar({ isAuthed }) {
   return (
-    <nav>
-      <h3>Logo</h3>
-      <input type="checkbox" id="nav" class="hidden" />
-      <label for="nav" class="nav__accordian">
+    <header className="nav">
+      <Link className="nav__brand--link" to="/">
+        <span className="nav__brand--name">Brand Name</span>
+      </Link>
+      <input type="checkbox" id="nav__accordian" class="nav__accordian--checkbox" />
+      <label for="nav__accordian" class="nav__accordian--label">
         <i />
         <i />
         <i />
       </label>
-      {props.isAuthed ? (
-        <div class="nav">
-          <ul>
-            <li>
-              <Link to="/quiz">Take Quiz</Link>
-            </li>
-            <li>
-              <Link to="/profile">Profile</Link>
-            </li>
-            <li>
-              <Link to="/logout">Logout</Link>
-            </li>
-          </ul>
+      {isAuthed ? (
+        <div className="nav__ul">
+          <NavLink to="/quiz" className="nav__li">
+            Quiz
+          </NavLink>
+          <NavLink to="/profile" className="nav__li">
+            Profile
+          </NavLink>
+          <NavLink to="/logout" className="nav__li">
+            Logout
+          </NavLink>
         </div>
       ) : (
-        <div class="nav">
-          <ul>
-            <li>
-              <Link to="/quiz">Take Quiz</Link>
-            </li>
-            <li>
-              <Link to="/logout">Logout</Link>
-            </li>
-          </ul>
+        <div className="nav__ul">
+          <NavLink to="/quiz" className="nav__li">
+            Quiz
+          </NavLink>
+          <NavLink to="/auth" className="nav__li">
+            Login
+          </NavLink>
         </div>
       )}
-    </nav>
+    </header>
   );
 }
-
-// nav-open became nav__accordian

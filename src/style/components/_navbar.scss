@@ -1,3 +1,22 @@
-nav {
+//TODO: CHANGE HOVER COLOR. ADD COLOR TO COLOR SCSS HELPER FILE AND IMPORT
+
+.nav {
   box-sizing: border-box;
+  padding: 30px;
+  background: $dark-blue;
+
+  &__ul {
+    float: right;
+  }
+
+  &__li {
+    text-decoration: none;
+    color: white;
+    &:not(:first-child) {
+      margin-left: 25px;
+    }
+    &:hover {
+      color: orange;
+    }
+  }
 }
