@@ -15,11 +15,15 @@
   &__brandContainer,
   &__ul {
     display: flex;
-    align-items: center; //changed from stretch
+    align-items: center;
     flex-wrap: wrap;
     flex-grow: 1;
   }
-
+  &__li,
+  &__brand--link {
+    text-decoration: none;
+    color: $white;
+  }
   &__brandContainer {
     justify-content: flex-start;
   }
@@ -28,14 +32,11 @@
   }
   &__li {
     display: flex;
-    text-decoration: none;
-    color: white;
-    //align-items: center;
     padding: 0.35rem 0.5rem;
   }
 }
 
-@media (min-width: 500px) {
+@media (min-width: $small) {
   .nav {
     &__accordian--label {
       display: none;
@@ -43,7 +44,7 @@
   }
 }
 //responsiveness
-@media (max-width: 500px) {
+@media (max-width: $small) {
   .nav {
     &__ul {
       display: none;
@@ -51,14 +52,16 @@
       left: 0;
       right: 0;
       top: 100%;
+      background: $white;
     }
-    &__accordian--checkbox:checked + &__ul {
-      display: block;
-    }
-
     &__li {
+      color: black;
       border: 2px;
       padding: 1rem;
+    }
+
+    &__accordian--checkbox:checked + &__ul {
+      display: block;
     }
   }
 }

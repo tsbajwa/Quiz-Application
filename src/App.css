@@ -406,29 +406,32 @@ h4 {
     align-items: center;
     flex-wrap: wrap;
     flex-grow: 1; }
+  .nav__li, .nav__brand--link {
+    text-decoration: none;
+    color: #eff3f3; }
   .nav__brandContainer {
     justify-content: flex-start; }
   .nav__ul {
     justify-content: flex-end; }
   .nav__li {
     display: flex;
-    text-decoration: none;
-    color: white;
     padding: 0.35rem 0.5rem; }
 
-@media (min-width: 500px) {
+@media (min-width: 401px) {
   .nav__accordian--label {
     display: none; } }
 
-@media (max-width: 500px) {
+@media (max-width: 401px) {
   .nav__ul {
     display: none;
     position: absolute;
     left: 0;
     right: 0;
-    top: 100%; }
-  .nav__accordian--checkbox:checked + .nav__ul {
-    display: block; }
+    top: 100%;
+    background: #eff3f3; }
   .nav__li {
+    color: black;
     border: 2px;
-    padding: 1rem; } }
+    padding: 1rem; }
+  .nav__accordian--checkbox:checked + .nav__ul {
+    display: block; } }
