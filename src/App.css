@@ -392,15 +392,43 @@ h4 {
   font-family: "Source Sans Pro", sans-serif; }
 
 .nav {
-  box-sizing: border-box;
-  padding: 30px;
-  background: #3058bd; }
+  display: flex;
+  align-items: stretch;
+  min-height: 3.25rem;
+  background: #3058bd;
+  position: relative; }
+  .nav__accordian--checkbox {
+    display: none; }
+  .nav__accordian--label {
+    font-size: 3.25rem; }
+  .nav__brandContainer, .nav__ul {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-grow: 1; }
+  .nav__brandContainer {
+    justify-content: flex-start; }
   .nav__ul {
-    float: right; }
+    justify-content: flex-end; }
   .nav__li {
+    display: flex;
     text-decoration: none;
-    color: white; }
-    .nav__li:not(:first-child) {
-      margin-left: 25px; }
-    .nav__li:hover {
-      color: orange; }
+    color: white;
+    padding: 0.35rem 0.5rem; }
+
+@media (min-width: 500px) {
+  .nav__accordian--label {
+    display: none; } }
+
+@media (max-width: 500px) {
+  .nav__ul {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%; }
+  .nav__accordian--checkbox:checked + .nav__ul {
+    display: block; }
+  .nav__li {
+    border: 2px;
+    padding: 1rem; } }

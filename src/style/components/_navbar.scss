@@ -1,22 +1,64 @@
 //TODO: CHANGE HOVER COLOR. ADD COLOR TO COLOR SCSS HELPER FILE AND IMPORT
-
 .nav {
-  box-sizing: border-box;
-  padding: 30px;
+  display: flex;
+  align-items: stretch;
+  min-height: 3.25rem;
   background: $dark-blue;
-
+  // For responsive naviagtion
+  position: relative;
+  &__accordian--checkbox {
+    display: none;
+  }
+  &__accordian--label {
+    font-size: 3.25rem;
+  }
+  &__brandContainer,
   &__ul {
-    float: right;
+    display: flex;
+    align-items: center; //changed from stretch
+    flex-wrap: wrap;
+    flex-grow: 1;
   }
 
+  &__brandContainer {
+    justify-content: flex-start;
+  }
+  &__ul {
+    justify-content: flex-end;
+  }
   &__li {
+    display: flex;
     text-decoration: none;
     color: white;
-    &:not(:first-child) {
-      margin-left: 25px;
+    //align-items: center;
+    padding: 0.35rem 0.5rem;
+  }
+}
+
+@media (min-width: 500px) {
+  .nav {
+    &__accordian--label {
+      display: none;
     }
-    &:hover {
-      color: orange;
+  }
+}
+//responsiveness
+@media (max-width: 500px) {
+  .nav {
+    &__ul {
+      display: none;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 100%;
+    }
+    &__accordian--checkbox:checked + &__ul {
+      display: block;
+    }
+
+    &__li {
+      border: 2px;
+      padding: 1rem;
     }
   }
 }
