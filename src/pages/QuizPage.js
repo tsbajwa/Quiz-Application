@@ -1,5 +1,5 @@
 import React from "react";
-import { QuizContainer } from "../containers";
+import { GenerateQuizContainer } from "../containers";
 
 export default function QuizPage() {
   return (
@@ -9,7 +9,7 @@ export default function QuizPage() {
         Take the quiz below. For full access to audio, text, other languages and tips buy here for
         only 50cents
       </p>
-      <QuizContainer />
+      <GenerateQuizContainer />
     </div>
   );
 }
