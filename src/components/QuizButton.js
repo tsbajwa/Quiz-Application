@@ -10,6 +10,7 @@ export default class QuizButton extends React.Component {
       this.props.lastAnsweredQuestionIndex + 1 === this.props.quizLength ? true : false;
 
     if (quizFinished) {
+      //Can add in previous button here still
       return (
         <div>
           <Link to="/results">See Results</Link>
@@ -17,12 +18,21 @@ export default class QuizButton extends React.Component {
       );
     } else {
       return (
-        <div>
+        <div className="quizButton__container">
           {showPrevBtn ? (
-            <Button text="Previous" onClick={this.props.handlePreviousButtonClick} />
+            <Button
+              className="quizButton__btn--prev"
+              text="Previous"
+              onClick={this.props.handlePreviousButtonClick}
+            />
           ) : null}
-
-          {showNextBtn ? <Button text="Next" onClick={this.props.handleNextButtonClick} /> : null}
+          {showNextBtn ? (
+            <Button
+              className="quizButton__btn--next"
+              text="Next"
+              onClick={this.props.handleNextButtonClick}
+            />
+          ) : null}
         </div>
       );
     }

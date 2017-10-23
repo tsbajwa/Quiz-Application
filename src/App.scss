@@ -7,9 +7,6 @@ html,
 body {
   width: 100%;
 }
-#root {
-  //max-width: 900px;
-}
 // Helpers
 @import "./style/helpers/_breakpoints.scss";
 @import "./style/helpers/_color.scss";
@@ -18,6 +15,11 @@ body {
 //components
 
 @import "./style/components/_navbar.scss";
+@import "./style/components/_infoBar.scss";
+@import "./style/components/_answerOption.scss";
+@import "./style/components/_quizButton.scss";
+//containers
+@import "./style/container/_quizContainer.scss";
 
 //Pages
 
