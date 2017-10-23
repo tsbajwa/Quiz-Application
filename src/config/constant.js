@@ -1,7 +1,8 @@
 import firebase from "firebase";
+import { APIKEY } from "./config";
 
 const config = {
-  apiKey: "AIzaSyDgR2AtxEeZV7t9g9IR6PlKLpxUVWtZiaw",
+  apiKey: APIKEY,
   authDomain: "us-citizenship-56f7c.firebaseapp.com",
   databaseURL: "https://us-citizenship-56f7c.firebaseio.com",
   projectId: "us-citizenship-56f7c",
