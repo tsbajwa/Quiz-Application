@@ -5,11 +5,11 @@
 
 html,
 body {
-  margin: 0px;
-  padding: 0px;
-  border: 0px;
+  width: 100%;
 }
-
+#root {
+  //max-width: 900px;
+}
 // Helpers
 @import "./style/helpers/_breakpoints.scss";
 @import "./style/helpers/_color.scss";
@@ -18,3 +18,7 @@ body {
 //components
 
 @import "./style/components/_navbar.scss";
+
+//Pages
+
+@import "./style/pages/_frontPage.scss";

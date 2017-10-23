@@ -371,9 +371,7 @@ th {
 
 html,
 body {
-  margin: 0px;
-  padding: 0px;
-  border: 0px; }
+  width: 100%; }
 
 html {
   font-size: 100%; }
@@ -400,7 +398,8 @@ h4 {
   .nav__accordian--checkbox {
     display: none; }
   .nav__accordian--label {
-    font-size: 3.25rem; }
+    font-size: 3.25rem;
+    color: #eff3f3; }
   .nav__brandContainer, .nav__ul {
     display: flex;
     align-items: center;
@@ -435,3 +434,18 @@ h4 {
     padding: 1rem; }
   .nav__accordian--checkbox:checked + .nav__ul {
     display: block; } }
+
+.frontPage__container {
+  text-align: center; }
+  .frontPage__container p {
+    margin: 0 1rem 0 1rem; }
+
+.frontPage__link {
+  display: flex;
+  text-decoration: none;
+  padding: 9px 0 9px 0;
+  margin: 30px 0 0 0;
+  border: 2px solid #63a875;
+  background-color: #63a875;
+  color: #eff3f3;
+  justify-content: center; }
