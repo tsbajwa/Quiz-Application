@@ -1,0 +1,17 @@
+.quizButton {
+  &__container {
+    display: flex;
+    justify-content: space-around;
+  }
+  //Correct selectors not selected
+  &__btn--prev,
+  &__btn--next {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+
+  &__btn--next {
+    background: $green;
+  }
+}

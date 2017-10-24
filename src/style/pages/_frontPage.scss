@@ -1,0 +1,18 @@
+.frontPage {
+  &__container {
+    text-align: center;
+    p {
+      margin: 0 1rem 0 1rem;
+    }
+  }
+  &__link {
+    display: flex;
+    text-decoration: none;
+    padding: 9px 0 9px 0;
+    margin: 30px 0 0 0;
+    border: 2px solid $green;
+    background-color: $green;
+    color: $white;
+    justify-content: center;
+  }
+}

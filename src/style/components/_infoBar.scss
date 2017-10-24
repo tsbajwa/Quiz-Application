@@ -1,0 +1,10 @@
+.infoBar {
+  &__container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0 20px 0;
+  }
+}
+
+//width boxcontent then add padding

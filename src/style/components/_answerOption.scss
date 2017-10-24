@@ -1,0 +1,36 @@
+.answerText {
+  &__container {
+    border-style: solid;
+    //removes border overlap
+    margin-bottom: -2px;
+    p {
+      margin: 0px;
+      padding: 16px;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+    &--green,
+    &--red {
+      border-style: solid;
+    }
+    &--green + .answerText__container,
+    &--red + .answerText__container {
+      border-top: 0px;
+    }
+    &--green {
+      border-color: green;
+      p {
+        color: green;
+        padding-left: 16px;
+      }
+    }
+    &--red {
+      border-color: red;
+      p {
+        color: red;
+        padding-left: 16px;
+      }
+    }
+  }
+}

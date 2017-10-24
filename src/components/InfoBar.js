@@ -1,14 +1,16 @@
-import React from 'react';
+import React from "react";
 
 export default function InfoBar(props) {
   return (
-    <div>
+    <div className="infoBar__container">
       <div>
-        <p>More Information</p>
+        <p>Quiz Name</p>
       </div>
       <div>
-        Question {props.currentQuestion} of {props.totalQuestions}
+        <p>
+          Question {props.currentQuestion} of {props.totalQuestions}
+        </p>
       </div>
     </div>
-  )
+  );
 }

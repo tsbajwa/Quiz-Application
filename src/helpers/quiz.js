@@ -5,7 +5,7 @@ import {
   resetLastAnsweredQIndex,
 } from "../redux/actions";
 
-export function generateAndSaveQuiz(questions, quizLength = 1) {
+export function generateAndSaveQuiz(questions, quizLength = 4) {
   return dispatch => {
     const currentQuizKeys = generateQuiz(questions, quizLength);
     dispatch(saveQuizOrder(currentQuizKeys));

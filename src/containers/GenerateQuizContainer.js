@@ -9,7 +9,7 @@ class GenerateQuizContainer extends React.Component {
   };
 
   componentDidMount() {
-    // isFetching and error property are on questions object by default
+    // isFetching and error property are on redux questions object by default
     if (Object.keys(this.props.questions).length < 3) {
       this.props.getQuestions().then(questions => {
         this.props.generateAndSaveQuiz(questions);

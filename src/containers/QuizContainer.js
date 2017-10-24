@@ -7,7 +7,7 @@ class QuizContainer extends React.Component {
   render() {
     const answerArray = Object.entries(this.props.answerOptions).map(arr => arr[1]);
     return (
-      <div>
+      <div className="quizContainer__container">
         <InfoBarContainer />
         <Quiz answerArray={answerArray} questionText={this.props.question} />
         <QuizButtonContainer />
