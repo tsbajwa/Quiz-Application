@@ -389,6 +389,21 @@ h3,
 h4 {
   font-family: "Source Sans Pro", sans-serif; }
 
+.frontPage__container {
+  text-align: center; }
+  .frontPage__container p {
+    margin: 0 1rem 0 1rem; }
+
+.frontPage__link {
+  display: flex;
+  text-decoration: none;
+  padding: 9px 0 9px 0;
+  margin: 30px 0 0 0;
+  border: 2px solid #63a875;
+  background-color: #63a875;
+  color: #eff3f3;
+  justify-content: center; }
+
 .nav {
   display: flex;
   align-items: stretch;
@@ -481,18 +496,3 @@ h4 {
   display: flex;
   flex-direction: column;
   padding: 0 5px 0 5px; }
-
-.frontPage__container {
-  text-align: center; }
-  .frontPage__container p {
-    margin: 0 1rem 0 1rem; }
-
-.frontPage__link {
-  display: flex;
-  text-decoration: none;
-  padding: 9px 0 9px 0;
-  margin: 30px 0 0 0;
-  border: 2px solid #63a875;
-  background-color: #63a875;
-  color: #eff3f3;
-  justify-content: center; }

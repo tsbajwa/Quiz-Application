@@ -12,6 +12,9 @@ body {
 @import "./style/helpers/_color.scss";
 @import "./style/helpers/_typography.scss";
 
+//Pages
+
+@import "./style/pages/_frontPage.scss";
 //components
 
 @import "./style/components/_navbar.scss";
@@ -20,7 +23,3 @@ body {
 @import "./style/components/_quizButton.scss";
 //containers
 @import "./style/container/_quizContainer.scss";
-
-//Pages
-
-@import "./style/pages/_frontPage.scss";
