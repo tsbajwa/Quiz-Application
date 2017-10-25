@@ -9,6 +9,7 @@ class ProfileContainer extends React.Component {
     orderedWrongAnswerCount: [],
   };
   componentDidMount() {
+    //Check if questions need to be fetched
     if (Object.keys(this.props.questions).length === 2) {
       this.props.getQuestions();
     }
