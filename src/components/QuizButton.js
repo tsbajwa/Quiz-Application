@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "../components";
+import { Button, QuizButtonRender } from "../components";
 import { Link } from "react-router-dom";
 export default class QuizButton extends React.Component {
   renderButtons = () => {
@@ -19,15 +19,15 @@ export default class QuizButton extends React.Component {
     } else {
       return (
         <div className="quizButton__container">
-          {showPrevBtn ? (
-            <Button
-              className="quizButton__btn--prev"
-              text="Previous"
-              onClick={this.props.handlePreviousButtonClick}
-            />
-          ) : null}
+          <QuizButtonRender
+            enableButton={showPrevBtn}
+            className="quizButton__btn--prev"
+            onClick={this.props.handlePreviousButtonClick}
+            text="Previous"
+          />
           {showNextBtn ? (
-            <Button
+            <QuizButtonRender
+              enableButton={showNextBtn}
               className="quizButton__btn--next"
               text="Next"
               onClick={this.props.handleNextButtonClick}

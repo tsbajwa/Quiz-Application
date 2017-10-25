@@ -1,7 +1,7 @@
 # Quiz Application
 A sample quiz website using the following technologies:
 
-* React + Redux, React Router
+* React + Redux, Redux Thunk, React Router
 * Firebase OAuth
 * Firebase NoSQL Database
 

@@ -9,6 +9,7 @@ import NavBar from "./NavBar";
 import Logout from "./Logout";
 import QuizResult from "./QuizResult";
 import Profile from "./Profile";
+import QuizButtonRender from "./QuizButtonRender";
 export {
   NavBar,
   Quiz,
@@ -21,4 +22,5 @@ export {
   Logout,
   QuizResult,
   Profile,
+  QuizButtonRender,
 };
