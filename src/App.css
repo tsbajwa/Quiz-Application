@@ -491,8 +491,3 @@ h4 {
 
 .quizButton__btn--next {
   background: #63a875; }
-
-.quizContainer__container {
-  display: flex;
-  flex-direction: column;
-  padding: 0 5px 0 5px; }
