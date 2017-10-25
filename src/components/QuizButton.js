@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, QuizButtonRender } from "../components";
+import { QuizButtonRender } from "../components";
 import { Link } from "react-router-dom";
 export default class QuizButton extends React.Component {
   renderButtons = () => {
