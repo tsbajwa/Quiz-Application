@@ -22,14 +22,12 @@ export default function QuizButton(props) {
           onClick={props.handlePreviousButtonClick}
           text="Previous"
         />
-        {showNextBtn ? (
-          <QuizButtonRender
-            enableButton={showNextBtn}
-            className="quizButton__btn--next"
-            text="Next"
-            onClick={props.handleNextButtonClick}
-          />
-        ) : null}
+        <QuizButtonRender
+          enableButton={showNextBtn}
+          className="quizButton__btn--next"
+          text="Next"
+          onClick={props.handleNextButtonClick}
+        />
       </div>
     );
   }
