@@ -456,27 +456,27 @@ h4 {
   justify-content: space-between;
   padding: 0 0 20px 0; }
 
-.answerText__container {
+.answerOption__container {
   border-style: solid;
   margin-bottom: -2px; }
-  .answerText__container p {
+  .answerOption__container p {
     margin: 0px;
     padding: 16px; }
-  .answerText__container:hover {
+  .answerOption__container:hover {
     cursor: pointer; }
-  .answerText__container--green, .answerText__container--red {
+  .answerOption__container--green, .answerOption__container--red {
     border-style: solid; }
-  .answerText__container--green + .answerText__container,
-  .answerText__container--red + .answerText__container {
+  .answerOption__container--green + .answerOption__container,
+  .answerOption__container--red + .answerOption__container {
     border-top: 0px; }
-  .answerText__container--green {
+  .answerOption__container--green {
     border-color: green; }
-    .answerText__container--green p {
+    .answerOption__container--green p {
       color: green;
       padding-left: 16px; }
-  .answerText__container--red {
+  .answerOption__container--red {
     border-color: red; }
-    .answerText__container--red p {
+    .answerOption__container--red p {
       color: red;
       padding-left: 16px; }
 

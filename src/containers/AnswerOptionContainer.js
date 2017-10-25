@@ -10,7 +10,7 @@ class AnswerOptionContainer extends React.Component {
   updateIfUnanswered = () => {
     if (this.props.questionObject.answerSelected === "") {
       this.props.updateAnswer(
-        this.props.answerText,
+        this.props.answerOption,
         this.props.questionKey,
         this.props.questionObject
       );
@@ -22,7 +22,7 @@ class AnswerOptionContainer extends React.Component {
     return (
       <AnswerOption
         onClick={this.handleClick}
-        answerText={this.props.answerText}
+        answerOption={this.props.answerOption}
         answerSelected={this.props.answerSelected}
         answer={this.props.answer}
       />

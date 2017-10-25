@@ -1,18 +1,18 @@
 import React from "react";
 
 export default function AnswerOption(props) {
-  let className = "answerText__container";
+  let className = "answerOption__container";
   if (props.answerSelected !== "") {
-    if (props.answer === props.answerText) {
-      className = "answerText__container--green";
+    if (props.answer === props.answerOption) {
+      className = "answerOption__container--green";
     }
-    if (props.answerSelected === props.answerText && props.answerText !== props.answer) {
-      className = "answerText__container--red";
+    if (props.answerSelected === props.answerOption && props.answerOption !== props.answer) {
+      className = "answerOption__container--red";
     }
   }
   return (
-    <div className={className} onClick={() => props.onClick(props.answerText)}>
-      <p>{props.answerText}</p>
+    <div className={className} onClick={() => props.onClick(props.answerOption)}>
+      <p>{props.answerOption}</p>
     </div>
   );
 }
