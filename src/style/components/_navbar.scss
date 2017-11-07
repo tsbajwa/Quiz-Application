@@ -1,68 +1,27 @@
-//TODO: CHANGE HOVER COLOR. ADD COLOR TO COLOR SCSS HELPER FILE AND IMPORT
-.nav {
+nav {
+  background-color: $dark-blue;
+  overflow: hidden;
+  padding: 1em;
+}
+
+.navWide {
   display: flex;
-  align-items: stretch;
-  min-height: 3.25rem;
-  background: $dark-blue;
-  // For responsive naviagtion
-  position: relative;
-  &__accordian--checkbox {
+  justify-content: space-between;
+}
+
+.navMobile {
+  display: flex;
+  justify-content: space-between;
+
+  &__ul {
     display: none;
-  }
-  &__accordian--label {
-    font-size: 3.25rem;
-    color: $white;
-  }
-  &__brandContainer,
-  &__ul {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    flex-grow: 1;
-  }
-  &__li,
-  &__brand--link {
-    text-decoration: none;
-    color: $white;
-  }
-  &__brandContainer {
-    justify-content: flex-start;
-  }
-  &__ul {
-    justify-content: flex-end;
-  }
-  &__li {
-    display: flex;
-    padding: 0.35rem 0.5rem;
-  }
-}
 
-@media (min-width: $small) {
-  .nav {
-    &__accordian--label {
-      display: none;
-    }
-  }
-}
-//responsiveness
-@media (max-width: $small) {
-  .nav {
-    &__ul {
-      display: none;
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 100%;
-      background: $white;
-    }
-    &__li {
-      color: black;
-      border: 2px;
-      padding: 1rem;
-    }
-
-    &__accordian--checkbox:checked + &__ul {
+    &--open {
       display: block;
     }
+  }
+
+  &__li {
+    display: flex;
   }
 }
