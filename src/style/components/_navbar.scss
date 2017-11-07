@@ -7,21 +7,48 @@ nav {
 .navWide {
   display: flex;
   justify-content: space-between;
+
+  &__li {
+    padding: 0.4em;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+  }
 }
 
 .navMobile {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
 
   &__ul {
     display: none;
-
-    &--open {
-      display: block;
-    }
   }
 
   &__li {
     display: flex;
+    padding: 0.4em 0;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    width: 100%;
   }
 }
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav {
+  &__brand {
+    font-size: 20px;
+    &--link {
+      text-decoration: none;
+    }
+  }
+}
+
+//TODO:
+//Styling for hover
+//Styling for active link
+//Better className naming

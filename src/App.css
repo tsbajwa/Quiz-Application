@@ -412,16 +412,33 @@ nav {
 .navWide {
   display: flex;
   justify-content: space-between; }
+  .navWide__li {
+    padding: 0.4em;
+    text-decoration: none;
+    color: white;
+    font-size: 20px; }
 
 .navMobile {
   display: flex;
-  justify-content: space-between; }
+  flex-direction: column; }
   .navMobile__ul {
     display: none; }
-    .navMobile__ul--open {
-      display: block; }
   .navMobile__li {
-    display: flex; }
+    display: flex;
+    padding: 0.4em 0;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    width: 100%; }
+
+.nav-container {
+  display: flex;
+  justify-content: space-between; }
+
+.nav__brand {
+  font-size: 20px; }
+  .nav__brand--link {
+    text-decoration: none; }
 
 .infoBar__container {
   width: 100%;
