@@ -4,7 +4,7 @@ export default function InfoBar(props) {
   return (
     <div className="infoBar__container">
       <div>
-        <p>Quiz Name</p>
+        <p>Citizenship Quiz</p>
       </div>
       <div>
         <p>
